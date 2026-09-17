@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAPERTREES — Books · Stationery · Printing · Art · Ideas</title>
+<meta name="description" content="Papertrees is a little independent shop in the heart of Wincanton — books, stationery, printing, creative materials and everyday discoveries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Homemade+Apple&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#f6f1e6;
+  --ivory-deep:#efe7d6;
+  --paper-edge:#e6dcc7;
+  --forest:#2e4b33;
+  --forest-deep:#223a27;
+  --moss:#6d7f5c;
+  --sage:#8a9a76;
+  --gold:#b8946a;
+  --gold-soft:#cdb089;
+  --ink:#3d4a3a;
+  --text:#47523f;
+  --shadow:0 1px 2px rgba(60,50,30,.05), 0 8px 24px rgba(60,50,30,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'EB Garamond', Georgia, serif;
+  background:var(--ivory);
+  color:var(--text);
+  font-size:18px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* subtle paper texture */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.38 0 0 0 0 0.28 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:rgba(184,148,106,.25)}
+
+h1,h2,h3,.serif-head{font-family:'Cormorant Garamond', Georgia, serif;color:var(--forest);font-weight:500}
+.script{font-family:'Homemade Apple', cursive;color:var(--forest);font-size:1.05em}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,241,230,.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(184,148,106,.35);
+}
+.nav-wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.brand svg{width:34px;height:34px;flex:none}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;letter-spacing:.22em;color:var(--forest);font-weight:600}
+nav.desktop{display:flex;gap:2.2rem}
+nav.desktop a{
+  font-family:'EB Garamond',serif;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;position:relative;padding:.25rem 0;
+}
+nav.desktop a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s ease}
+nav.desktop a:hover::after{width:100%}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:26px;height:1.5px;background:var(--forest);margin:6px 0;transition:.3s}
+.mobile-menu{
+  display:none;flex-direction:column;background:var(--ivory-deep);border-top:1px solid rgba(184,148,106,.35);
+  padding:1rem 1.5rem 1.4rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-family:'EB Garamond',serif;font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;padding:.7rem 0;border-bottom:1px solid rgba(184,148,106,.2);
+}
+.mobile-menu a:last-child{border-bottom:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;text-align:center;padding:6.5rem 1.5rem 5.5rem;overflow:hidden}
+.hero .botanic-frame{position:absolute;pointer-events:none;opacity:.85}
+.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+.hero-emblem{width:150px;height:150px;margin:0 auto 1.2rem}
+.hero h1{
+  font-size:clamp(2.6rem,7vw,4.6rem);font-weight:500;letter-spacing:.3em;text-indent:.3em;
+  color:var(--forest);
+}
+.hero .tagline{
+  font-size:clamp(.8rem,1.8vw,.95rem);letter-spacing:.42em;text-transform:uppercase;
+  color:var(--moss);margin-top:1rem;
+}
+.divider{display:flex;align-items:center;justify-content:center;gap:.9rem;margin:2rem auto}
+.divider .line{width:min(110px,18vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider .line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.divider .diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.hero p.welcome{max-width:560px;margin:0 auto;font-size:1.12rem;color:var(--text);font-style:italic}
+.hero .script-accent{margin-top:1.4rem;font-size:1.15rem}
+.btn-row{display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.btn{
+  display:inline-block;font-family:'EB Garamond',serif;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;
+  text-decoration:none;padding:.85rem 2.3rem;transition:.3s ease;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--forest);color:var(--ivory);border:1px solid var(--forest)}
+.btn-primary:hover{background:var(--forest-deep);box-shadow:0 6px 18px rgba(46,75,51,.25)}
+.btn-outline{background:transparent;color:var(--forest);border:1px solid var(--gold)}
+.btn-outline:hover{background:rgba(184,148,106,.12)}
+
+/* ---------- sections ---------- */
+section{padding:5rem 1.5rem}
+.section-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.section-head{text-align:center;margin-bottom:3.2rem}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.6rem);letter-spacing:.18em;font-weight:500}
+.section-head .script{display:block;margin-bottom:.4rem;font-size:1.05rem}
+.section-head p.sub{max-width:520px;margin:1rem auto 0;font-style:italic;color:var(--moss)}
+
+/* ---------- services ---------- */
+#services{background:var(--ivory-deep);border-top:1px solid rgba(184,148,106,.3);border-bottom:1px solid rgba(184,148,106,.3)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.card{
+  background:var(--ivory);border:1px solid var(--paper-edge);padding:2.4rem 1.8rem 2.1rem;text-align:center;
+  box-shadow:var(--shadow);position:relative;transition:transform .35s ease, box-shadow .35s ease;
+}
+.card::after{
+  content:"";position:absolute;inset:7px;border:1px solid rgba(184,148,106,.35);pointer-events:none;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 3px 6px rgba(60,50,30,.06),0 16px 36px rgba(60,50,30,.12)}
+.card-icon{width:64px;height:64px;margin:0 auto 1.2rem;display:block}
+.card h3{font-size:1.15rem;letter-spacing:.22em;margin-bottom:.7rem;font-weight:600}
+.card p{font-size:.98rem;color:var(--text)}
+
+/* ---------- local ---------- */
+.local-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.local-grid h2{font-size:clamp(1.7rem,3.4vw,2.3rem);letter-spacing:.14em;line-height:1.3;margin-bottom:1.2rem}
+.local-grid .script{display:block;margin-bottom:.6rem;font-size:1.05rem}
+.local-grid p{margin-bottom:1.4rem}
+.address-card{
+  background:var(--ivory-deep);border:1px solid var(--paper-edge);padding:2rem 2.2rem;box-shadow:var(--shadow);
+  font-size:1.05rem;
+}
+.address-card .addr-label{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.address-card a{color:var(--forest);text-decoration:none;border-bottom:1px solid var(--gold-soft)}
+.address-card a:hover{color:var(--forest-deep)}
+.addr-block{margin-bottom:.9rem}
+.addr-block .label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--moss)}
+.map-illustration{margin-top:1.8rem;width:100%;max-width:420px}
+
+/* ---------- deliveries ---------- */
+#deliveries{background:var(--forest);color:#e9e2d0;text-align:center;position:relative;overflow:hidden}
+#deliveries h2{color:#f1ead8;letter-spacing:.2em;font-size:clamp(1.8rem,4vw,2.5rem)}
+#deliveries .script{color:var(--gold-soft)}
+#deliveries p{max-width:560px;margin:1.2rem auto 0;font-size:1.1rem;color:#d8d0ba}
+#deliveries .ask{margin-top:1.8rem;font-size:1.25rem;color:#f1ead8}
+#deliveries .btn-outline{border-color:var(--gold-soft);color:#f1ead8;margin-top:1.8rem}
+#deliveries .btn-outline:hover{background:rgba(255,255,255,.08)}
+
+/* ---------- about ---------- */
+.about-inner{max-width:680px;margin:0 auto;text-align:center}
+.about-inner h2{font-size:clamp(1.7rem,3.6vw,2.3rem);letter-spacing:.16em;margin-bottom:1.4rem;line-height:1.35}
+.about-inner p{margin-bottom:1.1rem}
+.about-inner .script{font-size:1.2rem}
+
+/* ---------- footer ---------- */
+footer{
+  background:var(--ivory-deep);border-top:1px solid rgba(184,148,106,.35);
+  padding:4rem 1.5rem 2.5rem;text-align:center;
+}
+.footer-inner{max-width:760px;margin:0 auto}
+footer .brand-name{font-size:1.5rem}
+.footer-tagline{font-size:.82rem;letter-spacing:.4em;text-transform:uppercase;color:var(--moss);margin:.9rem 0 1.8rem}
+.footer-details{font-size:1rem;color:var(--text);line-height:1.9}
+.footer-details a{color:var(--forest);text-decoration:none;border-bottom:1px solid var(--gold-soft)}
+.footer-nav{display:flex;justify-content:center;gap:1.8rem;flex-wrap:wrap;margin:2rem 0}
+.footer-nav a{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.footer-nav a:hover{color:var(--forest)}
+.copyright{font-size:.82rem;color:var(--moss);border-top:1px solid rgba(184,148,106,.3);padding-top:1.6rem;margin-top:1rem}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .local-grid{grid-template-columns:1fr;gap:2.5rem}
+}
+@media(max-width:640px){
+  body{font-size:17px}
+  nav.desktop{display:none}
+  .hamburger{display:block}
+  .cards{grid-template-columns:1fr}
+  section{padding:3.8rem 1.3rem}
+  .hero{padding:4.5rem 1.2rem 4rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav-wrap">
+    <a class="brand" href="#home" aria-label="Papertrees home">
+      <svg viewBox="0 0 60 60" fill="none" aria-hidden="true">
+        <path d="M30 54 C30 38 30 24 30 12" stroke="#6d7f5c" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M30 42 C22 40 16 33 15 24 C24 26 30 32 30 42 Z" fill="#6d7f5c" opacity=".85"/>
+        <path d="M30 30 C38 28 44 21 45 12 C36 14 30 20 30 30 Z" fill="#8a9a76" opacity=".9"/>
+        <circle cx="26" cy="9" r="2.2" fill="#b8946a"/>
+        <circle cx="34" cy="8" r="1.8" fill="#cdb089"/>
+      </svg>
+      <span class="brand-name">PAPERTREES</span>
+    </a>
+    <nav class="desktop" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">What We Offer</a>
+      <a href="#deliveries">Deliveries</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">What We Offer</a>
+    <a href="#deliveries">Deliveries</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <svg class="botanic-frame" style="top:-10px;left:-40px;width:280px;transform:rotate(-8deg)" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M20 10 C60 40 90 90 100 190" stroke="#8a9a76" stroke-width="1.6" opacity=".55" fill="none"/>
+    <path d="M52 48 C38 44 30 32 30 18 C44 22 52 32 52 48 Z" fill="#6d7f5c" opacity=".5"/>
+    <path d="M74 84 C60 80 52 68 52 54 C66 58 74 68 74 84 Z" fill="#8a9a76" opacity=".5"/>
+    <path d="M92 124 C78 120 70 108 70 94 C84 98 92 108 92 124 Z" fill="#6d7f5c" opacity=".45"/>
+    <circle cx="99" cy="164" r="4" fill="#b8946a" opacity=".5"/>
+    <circle cx="88" cy="176" r="3" fill="#cdb089" opacity=".5"/>
+  </svg>
+  <svg class="botanic-frame" style="bottom:-30px;right:-50px;width:300px;transform:rotate(172deg)" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M20 10 C60 40 90 90 100 190" stroke="#8a9a76" stroke-width="1.6" opacity=".5" fill="none"/>
+    <path d="M52 48 C38 44 30 32 30 18 C44 22 52 32 52 48 Z" fill="#6d7f5c" opacity=".45"/>
+    <path d="M74 84 C60 80 52 68 52 54 C66 58 74 68 74 84 Z" fill="#8a9a76" opacity=".45"/>
+    <path d="M92 124 C78 120 70 108 70 94 C84 98 92 108 92 124 Z" fill="#6d7f5c" opacity=".4"/>
+    <circle cx="99" cy="164" r="4" fill="#b8946a" opacity=".45"/>
+  </svg>
+
+  <div class="hero-inner">
+    <svg class="hero-emblem" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+      <ellipse cx="80" cy="122" rx="52" ry="9" fill="#d8cbb0" opacity=".5"/>
+      <path d="M80 116 C80 84 80 58 80 40" stroke="#6d7f5c" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M80 44 C68 40 60 28 60 14 C74 18 80 28 80 44 Z" fill="#2e4b33"/>
+      <path d="M80 44 C92 40 100 28 100 14 C86 18 80 28 80 44 Z" fill="#4a6b4e"/>
+      <path d="M80 72 C66 68 57 55 57 40 C72 44 80 54 80 72 Z" fill="#4a6b4e"/>
+      <path d="M80 72 C94 68 103 55 103 40 C88 44 80 54 80 72 Z" fill="#6d7f5c"/>
+      <path d="M80 100 C64 96 54 82 54 65 C70 69 80 80 80 100 Z" fill="#6d7f5c"/>
+      <path d="M80 100 C96 96 106 82 106 65 C90 69 80 80 80 100 Z" fill="#8a9a76"/>
+      <path d="M80 118 C88 112 94 102 95 90 C87 96 82 105 80 118 Z" fill="#8a9a76"/>
+      <circle cx="71" cy="30" r="3.4" fill="#b8946a"/>
+      <circle cx="90" cy="25" r="2.8" fill="#cdb089"/>
+      <path d="M46 116 L114 116 L108 129 L52 129 Z" fill="#c4b08e"/>
+      <path d="M52 116 L60 116 L58 129 L52 129 Z" fill="#b8946a" opacity=".6"/>
+    </svg>
+
+    <h1>PAPERTREES</h1>
+    <p class="tagline">Books&nbsp;•&nbsp;Stationery&nbsp;•&nbsp;Printing&nbsp;•&nbsp;Art&nbsp;•&nbsp;Ideas</p>
+
+    <div class="divider" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+
+    <p class="welcome">A little independent shop in the heart of Wincanton, bringing together books, stationery, printing, creative materials and everyday discoveries.</p>
+    <p class="script script-accent">— local · friendly · for your everyday —</p>
+
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#contact">Visit the Shop</a>
+      <a class="btn btn-outline" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="script">what we offer</span>
+      <h2>WHAT WE OFFER</h2>
+      <div class="divider" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="sub">Six little departments under one roof — practical, beautiful and useful things for every day.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <svg class="card-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="12" y="10" width="40" height="42" rx="2" fill="#fbf8f0" stroke="#b8946a" stroke-width="1.4"/>
+          <rect x="18" y="6" width="28" height="8" rx="1.5" fill="#2e4b33"/>
+          <path d="M20 24 h24 M20 30 h24 M20 36 h16" stroke="#8a9a76" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="44" cy="44" r="5" fill="#6d7f5c"/>
+          <path d="M47.5 47.5 L52 52" stroke="#2e4b33" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <h3>PRINTING</h3>
+        <p>Everyday printing and document services.</p>
+      </article>
+
+      <article class="card reveal">
+        <svg class="card-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="8" y="20" width="48" height="30" rx="2" fill="#fbf8f0" stroke="#b8946a" stroke-width="1.4"/>
+          <path d="M8 26 L32 42 L56 26" fill="none" stroke="#2e4b33" stroke-width="1.6"/>
+          <path d="M36 14 C36 8 40 6 44 6 C44 12 40 14 36 14 Z" fill="#6d7f5c"/>
+          <path d="M38 15 C42 10 48 9 52 11 C50 16 44 17 38 15 Z" fill="#8a9a76"/>
+          <path d="M36 15 C32 12 26 11 22 13 C24 18 30 18 36 15 Z" fill="#8a9a76"/>
+        </svg>
+        <h3>STATIONERY</h3>
+        <p>Beautiful stationery and useful everyday essentials.</p>
+      </article>
+
+      <article class="card reveal">
+        <svg class="card-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M20 34 h24 v14 a6 6 0 0 1 -6 6 H26 a6 6 0 0 1 -6 -6 Z" fill="#fbf8f0" stroke="#b8946a" stroke-width="1.4"/>
+          <path d="M24 34 V26 a8 8 0 0 1 16 0 v8" fill="none" stroke="#2e4b33" stroke-width="1.6"/>
+          <path d="M32 22 C30 18 27 17 24 18 C25 21 28 22 32 22 Z" fill="#6d7f5c"/>
+          <path d="M32 22 C34 18 37 17 40 18 C39 21 36 22 32 22 Z" fill="#8a9a76"/>
+          <circle cx="32" cy="42" r="3" fill="#b8946a"/>
+        </svg>
+        <h3>CREATIVE TOYS</h3>
+        <p>Creative and imaginative products for children and families.</p>
+      </article>
+
+      <article class="card reveal">
+        <svg class="card-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M12 18 h10 v36 h-8 a2 2 0 0 1 -2 -2 Z" fill="#2e4b33"/>
+          <path d="M22 18 h10 v36 h-10 Z" fill="#8f3b3b"/>
+          <path d="M32 18 h10 v36 h-10 Z" fill="#4a6b4e"/>
+          <path d="M42 18 h10 v34 a2 2 0 0 1 -2 2 h-8 Z" fill="#b8946a"/>
+          <path d="M32 12 C32 8 35 6 38 6 C38 10 35 12 32 12 Z" fill="#6d7f5c"/>
+          <path d="M33 13 C36 10 40 9 43 11 C41 14 37 15 33 13 Z" fill="#8a9a76"/>
+        </svg>
+        <h3>BOOKS</h3>
+        <p>Books for different interests, ages and occasions.</p>
+      </article>
+
+      <article class="card reveal">
+        <svg class="card-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="14" y="8" width="36" height="48" rx="2" fill="#fbf8f0" stroke="#b8946a" stroke-width="1.4"/>
+          <path d="M20 18 h24 M20 24 h24 M20 30 h18" stroke="#8a9a76" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M26 44 l6 4 6-8" fill="none" stroke="#2e4b33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>BOOK &amp; STATIONERY ORDERING</h3>
+        <p>An ordering service for books, stationery and items customers may not find in the shop.</p>
+      </article>
+
+      <article class="card reveal">
+        <svg class="card-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="34" r="22" fill="#fbf8f0" stroke="#b8946a" stroke-width="1.4"/>
+          <circle cx="24" cy="28" r="4" fill="#8f3b3b" opacity=".85"/>
+          <circle cx="34" cy="24" r="4" fill="#b8946a" opacity=".85"/>
+          <circle cx="41" cy="33" r="4" fill="#4a6b4e" opacity=".85"/>
+          <circle cx="30" cy="40" r="4" fill="#8a9a76" opacity=".85"/>
+          <path d="M44 10 L50 4 M48 14 L56 8" stroke="#2e4b33" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M44 10 L48 14" stroke="#2e4b33" stroke-width="1.8"/>
+        </svg>
+        <h3>ART MATERIALS</h3>
+        <p>Materials and supplies for drawing, painting and creative work.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCAL ================= -->
+<section id="local">
+  <div class="section-inner local-grid">
+    <div class="reveal">
+      <span class="script">find us on the high street</span>
+      <h2>YOUR LOCAL PAPERTREES</h2>
+      <p>Papertrees is based on Wincanton High Street and is proud to serve our local community — neighbours, families and visitors alike. Drop in for a browse, a chat, or simply to find something useful and lovely.</p>
+      <a class="btn btn-outline" href="#contact">Find Us</a>
+
+      <svg class="map-illustration" viewBox="0 0 420 260" fill="none" aria-hidden="true">
+        <rect x="10" y="10" width="400" height="240" rx="6" fill="#efe7d6" stroke="#cdb089" stroke-width="1.2"/>
+        <path d="M30 200 C110 190 200 150 260 100 C300 66 350 50 395 44" stroke="#c9b896" stroke-width="14" stroke-linecap="round" fill="none"/>
+        <path d="M30 200 C110 190 200 150 260 100 C300 66 350 50 395 44" stroke="#fbf8f0" stroke-width="2" stroke-dasharray="10 8" fill="none"/>
+        <path d="M120 30 C130 90 130 160 115 235" stroke="#d8cbb0" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M290 130 C320 160 350 200 370 235" stroke="#d8cbb0" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <circle cx="210" cy="128" r="26" fill="#2e4b33" opacity=".1"/>
+        <path d="M210 104 C196 104 186 114 186 127 C186 143 210 160 210 160 C210 160 234 143 234 127 C234 114 224 104 210 104 Z" fill="#2e4b33"/>
+        <circle cx="210" cy="126" r="7" fill="#f6f1e6"/>
+        <text x="210" y="192" text-anchor="middle" font-family="EB Garamond, serif" font-size="15" fill="#47523f" letter-spacing="2">33 HIGH STREET</text>
+        <path d="M60 60 C52 56 48 48 48 38 C58 42 62 50 60 60 Z" fill="#8a9a76" opacity=".7"/>
+        <path d="M352 196 C360 192 364 184 364 174 C354 178 350 186 352 196 Z" fill="#8a9a76" opacity=".7"/>
+        <text x="60" y="250" font-family="Homemade Apple, cursive" font-size="12" fill="#6d7f5c">somewhere lovely in somerset…</text>
+      </svg>
+    </div>
+
+    <div class="reveal">
+      <div class="address-card" id="contact">
+        <p class="addr-label">Visit · Call · Write</p>
+        <div class="addr-block">
+          <span class="label">Address</span><br>
+          33 High Street<br>Wincanton<br>Somerset<br>BA9 9JU
+        </div>
+        <div class="addr-block">
+          <span class="label">Telephone</span><br>
+          <a href="tel:+441963845101">01963 845101</a>
+        </div>
+        <div class="addr-block">
+          <span class="label">Email</span><br>
+          <a href="mailto:hello@papertrees.co.uk">hello@papertrees.co.uk</a>
+        </div>
+        <div class="divider" style="margin:1.4rem auto" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+        <p style="font-size:.95rem;font-style:italic;color:var(--moss)">We would love to see you in the shop — or reach out any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DELIVERIES ================= -->
+<section id="deliveries">
+  <svg style="position:absolute;top:-14px;left:-30px;width:220px;opacity:.25" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M20 10 C60 40 90 90 100 190" stroke="#e9e2d0" stroke-width="1.6" fill="none"/>
+    <path d="M52 48 C38 44 30 32 30 18 C44 22 52 32 52 48 Z" fill="#e9e2d0"/>
+    <path d="M74 84 C60 80 52 68 52 54 C66 58 74 68 74 84 Z" fill="#e9e2d0"/>
+    <circle cx="99" cy="164" r="4" fill="#cdb089"/>
+  </svg>
+  <svg style="position:absolute;bottom:-20px;right:-40px;width:240px;transform:rotate(160deg);opacity:.25" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M20 10 C60 40 90 90 100 190" stroke="#e9e2d0" stroke-width="1.6" fill="none"/>
+    <path d="M52 48 C38 44 30 32 30 18 C44 22 52 32 52 48 Z" fill="#e9e2d0"/>
+    <path d="M74 84 C60 80 52 68 52 54 C66 58 74 68 74 84 Z" fill="#e9e2d0"/>
+    <circle cx="99" cy="164" r="4" fill="#cdb089"/>
+  </svg>
+  <div class="section-inner reveal">
+    <span class="script">a village tradition, kept going</span>
+    <h2>NEWSPAPER DELIVERIES</h2>
+    <div class="divider" style="margin:1.6rem auto" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    <p>Magazine and newspaper deliveries to Wincanton and surrounding villages — a small daily pleasure we are delighted to keep going for our neighbours.</p>
+    <p class="script ask">Ask us about local delivery.</p>
+    <a class="btn btn-outline" href="tel:+441963845101">Call 01963 845101</a>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="section-inner about-inner reveal">
+    <span class="script">a little bit of everything</span>
+    <h2>A SHOP WITH A LITTLE BIT OF EVERYTHING</h2>
+    <div class="divider" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    <p>Papertrees is more than a single-category shop. Under one roof you will find books, paper, creativity, useful things and the occasional unexpected discovery — gathered together the way a good village shop should be.</p>
+    <p>Some days you will come in for a printout and leave with a notebook. Other days it might be a birthday card, a paintbrush, or the exact book you had been hoping to find. That is rather the point of us.</p>
+    <p class="script" style="margin-top:1.6rem">— come and see what you find —</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-inner">
+    <p class="brand-name">PAPERTREES</p>
+    <p class="footer-tagline">Books&nbsp;•&nbsp;Stationery&nbsp;•&nbsp;Printing&nbsp;•&nbsp;Art&nbsp;•&nbsp;Ideas</p>
+    <div class="footer-details">
+      33 High Street · Wincanton · Somerset · BA9 9JU<br>
+      <a href="tel:+441963845101">01963 845101</a><br>
+      <a href="mailto:hello@papertrees.co.uk">hello@papertrees.co.uk</a>
+    </div>
+    <div class="footer-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">What We Offer</a>
+      <a href="#deliveries">Deliveries</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p class="copyright">© 2026 Papertrees, Wincanton. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('hamburger');
+  var menu=document.getElementById('mobileMenu');
+  btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');});
+  });
+  var revealEls=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+    },{threshold:.12});
+    revealEls.forEach(function(el){io.observe(el);});
+  }else{
+    revealEls.forEach(function(el){el.classList.add('visible');});
+  }
+})();
+</script>
+</body>
+</html>
